@@ -1,0 +1,3 @@
+/           ====> this instruction
+/books      ====> all books JSON
+/books/<id> ====> one book with id "<id>" JSON
