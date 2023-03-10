@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
+    "autoRestart": "nodemon main.js",
     "testRouter": "mocha ./tests/router.test.js",
     "testServer": "mocha ./tests/server.test.js",
     "testController": "mocha ./tests/controller.test.js",
@@ -12,6 +13,7 @@
   },
   "devDependencies": {
     "mocha": "^10.2.0",
+    "nodemon": "^2.0.21",
     "supertest": "^6.3.3"
   },
   "dependencies": {

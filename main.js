@@ -1,6 +1,6 @@
 const { Server } = require("./models/server.js");
-const { getBooks, getBookById } = require("../controllers/bookController.js");
-const { getInstruction } = require("../controllers/baseController.js");
+const { getBooks, getBookById } = require("./controllers/bookController.js");
+const { getInstruction } = require("./controllers/baseController.js");
 
 let server = new Server();
 
