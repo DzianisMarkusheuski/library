@@ -61,7 +61,7 @@ exports.insertBooks = async function (books) {
         var client = await getInitDBClient();
         let collection = client.db("library").collection("books");
 
-        let result = await collection.insertMany(books, { "forceServerObjectId": true });
+        var result = await collection.insertMany(books, { "forceServerObjectId": true });
         return result.insertedCount;
     } catch (error) {
         throw error;

@@ -11,7 +11,7 @@ describe("server module", function () {
         server = new Server();
         server.removeAllEvents();
 
-        server.get("/", async (request, response) => {
+        server.GET("/", async (request, response) => {
             try {
                 let instruction = await getInstruction();
                 response.end(instruction);
@@ -20,13 +20,13 @@ describe("server module", function () {
             }
         });
         
-        server.get("/books", async (request, response) => {
+        server.GET("/books", async (request, response) => {
             let books = await getBooks();
             response.write(JSON.stringify(books));
             response.end();
         });
         
-        server.get("/books/\\d+", async (request, response) => {
+        server.GET("/books/\\d+", async (request, response) => {
             let id = Number(/\d+$/.exec(request.url)[0]);
             let book = await getBookById(id);
             response.end(JSON.stringify(book));

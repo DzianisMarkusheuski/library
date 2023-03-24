@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { router, get, removeAllEvents } = require("../routes/router.js");
+const { router, GET, removeAllEvents } = require("../routes/router.js");
 
 let request = {
     url: "",
@@ -21,7 +21,7 @@ let response = {
     }
 }
 
-describe("router module", function () {
+describe("router module GET", function () {
     beforeEach(function () {
         response.header = "";
         response.body = "";
@@ -52,7 +52,7 @@ describe("router module", function () {
         request.method = "GET";
         request.url = "/";
 
-        get("/", (request, response) => {
+        GET("/", (request, response) => {
             response.writeHead(200);
             response.write("hello world");
             response.end();
@@ -66,7 +66,7 @@ describe("router module", function () {
         request.method = "GET";
         request.url = "/books";
 
-        get("/books", (request, response) => {
+        GET("/books", (request, response) => {
             response.writeHead(200);
             response.write("books");
             response.end();
@@ -80,7 +80,7 @@ describe("router module", function () {
         request.method = "GET";
         request.url = "/books/123";
 
-        get("/books/\\d+", (request, response) => {
+        GET("/books/\\d+", (request, response) => {
             response.writeHead(200);
             response.write(request.url);
             response.end();

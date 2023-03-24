@@ -3,8 +3,20 @@ const Emitter = require("events");
 let emitter = new Emitter();
 let methods = Object.create(null);
 
-exports.get = methods["GET"] = function (eventUrl, callback) {
+exports.GET = methods["GET"] = function (eventUrl, callback) {
     emitter.on("^GET" + eventUrl + "$", callback);
+}
+
+exports.PUT = methods["PUT"] = function (eventUrl, callback) {
+    emitter.on("^PUT" + eventUrl + "$", callback);
+}
+
+exports.DELETE = methods["DELETE"] = function (eventUrl, callback) {
+    emitter.on("^DELETE" + eventUrl + "$", callback);
+}
+
+exports.POST = methods["POST"] = function (eventUrl, callback) {
+    emitter.on("^POST" + eventUrl + "$", callback);
 }
 
 exports.removeAllEvents = function () {

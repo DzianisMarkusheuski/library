@@ -20,12 +20,20 @@ var booksInDB = [
 ];
 
 describe("controller module", function () {
-    this.beforeEach(function () {
-        return insertBooks(booksInDB);
+    this.beforeEach(function (end) {
+        dropLibrary().then(_ => {
+            insertBooks(booksInDB).then(_ => {
+                end();
+            });
+        });
     });
 
-    this.afterEach(function () {
-        return dropLibrary();
+    this.afterEach(function (end) {
+        dropLibrary().then(_ => {
+            insertBooks(booksInDB).then(_ => {
+                end();
+            });
+        });
     })
 
     it("get all books", function () {

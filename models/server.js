@@ -1,6 +1,7 @@
 const { createServer } = require("http");
 const { log } = require("../controllers/log.js");
-const { router, get, removeAllEvents } = require("../routes/router.js");
+const { router, removeAllEvents } = require("../routes/router.js");
+const { PUT, DELETE, POST, GET } = require("../routes/router.js");
 
 exports.Server = class Server {
     constructor() {
@@ -33,8 +34,20 @@ exports.Server = class Server {
         this._server.close();
     }
 
-    get(eventUrl, callback){
-        get(eventUrl, callback)
+    GET(eventUrl, callback){
+        GET(eventUrl, callback);
+    }
+
+    PUT(eventUrl, callback){
+        PUT(eventUrl, callback);
+    }
+
+    DELETE(eventUrl, callback){
+        DELETE(eventUrl, callback);
+    }
+
+    POST(eventUrl, callback){
+        POST(eventUrl, callback);
     }
 
     removeAllEvents(){
