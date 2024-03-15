@@ -10,3 +10,7 @@ exports.getInitDBClient = async function(){
     await client.connect();
     return client;
 }
+
+exports.getVideo = async function(){
+    return await readFile("./public/test.mp4");
+}
